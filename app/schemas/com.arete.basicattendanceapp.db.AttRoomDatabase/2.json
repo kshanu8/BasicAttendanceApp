@@ -1,0 +1,263 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 2,
+    "identityHash": "2c241edaee836f069b8f190d75e51060",
+    "entities": [
+      {
+        "tableName": "EMPMaster",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`EMP_ID` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `EMP_Name` TEXT NOT NULL, `Designation` TEXT NOT NULL, `Gender` TEXT NOT NULL, `Status` INTEGER NOT NULL DEFAULT 1, `Deleted` INTEGER NOT NULL DEFAULT 0, `Add_By` TEXT, `Add_Date` TEXT DEFAULT CURRENT_DATE, `Edit_By` TEXT, `Edit_Date` TEXT, `Delete_By` TEXT, `Delete_Date` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "EMP_ID",
+            "columnName": "EMP_ID",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "EMP_Name",
+            "columnName": "EMP_Name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "Designation",
+            "columnName": "Designation",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "Gender",
+            "columnName": "Gender",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "Status",
+            "columnName": "Status",
+            "affinity": "INTEGER",
+            "notNull": true,
+            "defaultValue": "1"
+          },
+          {
+            "fieldPath": "Deleted",
+            "columnName": "Deleted",
+            "affinity": "INTEGER",
+            "notNull": true,
+            "defaultValue": "0"
+          },
+          {
+            "fieldPath": "Add_By",
+            "columnName": "Add_By",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "Add_Date",
+            "columnName": "Add_Date",
+            "affinity": "TEXT",
+            "notNull": false,
+            "defaultValue": "CURRENT_DATE"
+          },
+          {
+            "fieldPath": "Edit_By",
+            "columnName": "Edit_By",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "Edit_Date",
+            "columnName": "Edit_Date",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "Delete_By",
+            "columnName": "Delete_By",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "Delete_Date",
+            "columnName": "Delete_Date",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "EMP_ID"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "Attendance",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`AT_ID` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `EMP_ID` INTEGER NOT NULL, `EMP_Name` TEXT NOT NULL, `Status` INTEGER NOT NULL DEFAULT 1, `Deleted` INTEGER NOT NULL DEFAULT 0, `Add_By` TEXT, `Add_Date` TEXT DEFAULT CURRENT_DATE, `Edit_By` TEXT, `Edit_Date` TEXT, `Delete_By` TEXT, `Delete_Date` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "AT_ID",
+            "columnName": "AT_ID",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "EMP_ID",
+            "columnName": "EMP_ID",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "EMP_Name",
+            "columnName": "EMP_Name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "Status",
+            "columnName": "Status",
+            "affinity": "INTEGER",
+            "notNull": true,
+            "defaultValue": "1"
+          },
+          {
+            "fieldPath": "Deleted",
+            "columnName": "Deleted",
+            "affinity": "INTEGER",
+            "notNull": true,
+            "defaultValue": "0"
+          },
+          {
+            "fieldPath": "Add_By",
+            "columnName": "Add_By",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "Add_Date",
+            "columnName": "Add_Date",
+            "affinity": "TEXT",
+            "notNull": false,
+            "defaultValue": "CURRENT_DATE"
+          },
+          {
+            "fieldPath": "Edit_By",
+            "columnName": "Edit_By",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "Edit_Date",
+            "columnName": "Edit_Date",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "Delete_By",
+            "columnName": "Delete_By",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "Delete_Date",
+            "columnName": "Delete_Date",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "AT_ID"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "CompanyMaster",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`CMP_ID` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `CMP_Name` TEXT NOT NULL, `Status` INTEGER NOT NULL DEFAULT 1, `Deleted` INTEGER NOT NULL DEFAULT 0, `Add_By` TEXT, `Add_Date` TEXT DEFAULT CURRENT_DATE, `Edit_By` TEXT, `Edit_Date` TEXT, `Delete_By` TEXT, `Delete_Date` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "CMP_ID",
+            "columnName": "CMP_ID",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "CMP_Name",
+            "columnName": "CMP_Name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "Status",
+            "columnName": "Status",
+            "affinity": "INTEGER",
+            "notNull": true,
+            "defaultValue": "1"
+          },
+          {
+            "fieldPath": "Deleted",
+            "columnName": "Deleted",
+            "affinity": "INTEGER",
+            "notNull": true,
+            "defaultValue": "0"
+          },
+          {
+            "fieldPath": "Add_By",
+            "columnName": "Add_By",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "Add_Date",
+            "columnName": "Add_Date",
+            "affinity": "TEXT",
+            "notNull": false,
+            "defaultValue": "CURRENT_DATE"
+          },
+          {
+            "fieldPath": "Edit_By",
+            "columnName": "Edit_By",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "Edit_Date",
+            "columnName": "Edit_Date",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "Delete_By",
+            "columnName": "Delete_By",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "Delete_Date",
+            "columnName": "Delete_Date",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "CMP_ID"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '2c241edaee836f069b8f190d75e51060')"
+    ]
+  }
+}
