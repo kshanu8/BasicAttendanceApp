@@ -10,6 +10,9 @@ interface CMPMasterDao {
     @Query("SELECT * FROM CompanyMaster")
     fun getAllCMP(): LiveData<List<CompanyMaster>>
 
+    @Query("SELECT CMP_Name FROM CompanyMaster Where Status = 1 and Deleted = 0")
+    fun getAllCMPName(): LiveData<List<String>>
+
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(companyMaster: CompanyMaster)
 

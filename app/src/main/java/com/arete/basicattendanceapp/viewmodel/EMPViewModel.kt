@@ -1,6 +1,7 @@
 package com.arete.basicattendanceapp.viewmodel
 
 import androidx.lifecycle.*
+import com.arete.basicattendanceapp.entity.CompanyMaster
 import com.arete.basicattendanceapp.repository.EmployeeRepository
 import com.arete.basicattendanceapp.entity.EMPMaster
 import kotlinx.coroutines.launch
@@ -12,6 +13,8 @@ class EMPViewModel(private val repository: EmployeeRepository) : ViewModel() {
     //   the UI when the data actually changes.
     // - Repository is completely separated from the UI through the ViewModel.
     val allEmployees: LiveData<List<EMPMaster>> = repository.allEmployees
+
+    val allCompanyList: LiveData<List<String>> = repository.allCompanies
 
     /**
      * Launching a new coroutine to insert the data in a non-blocking way

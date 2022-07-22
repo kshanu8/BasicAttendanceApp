@@ -1,7 +1,9 @@
 package com.arete.basicattendanceapp
 
+import android.R
 import android.content.Context
 import android.os.Bundle
+import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.RadioButton
 import android.widget.Toast
@@ -30,6 +32,7 @@ class EMPListActivity : AppCompatActivity() {
     }
 
     lateinit var context: Context
+    val arrayList = ArrayList<String>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,6 +49,17 @@ class EMPListActivity : AppCompatActivity() {
         val female = findViewById<RadioButton>(R.id.female)
         val btnSave = findViewById<Button>(R.id.btnSave)
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)*/
+        arrayList.add("Select")
+        empViewModel.allCompanyList.observe(this){company ->
+            company.let {
+                for (companyName in it){
+                    arrayList.add(companyName)
+                }
+            }
+        }
+
+        val adapterCmp = ArrayAdapter(this, R.layout.simple_spinner_item, arrayList)
+        binding.spinnerCompany.adapter = adapterCmp
 
         binding.btnSave.setOnClickListener {
             if (binding.name.text.toString().trim().isEmpty()) {

@@ -4,10 +4,12 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/BasicAttendanceApp/app/src/main/res/drawable/ic_add_employee.xml" value="0.131" />
+        <entry key="..\:/BasicAttendanceApp/app/src/main/res/drawable/ic_app_icon.xml" value="0.131" />
         <entry key="..\:/BasicAttendanceApp/app/src/main/res/drawable/ic_baseline_keyboard_double_arrow_right_24.xml" value="0.131" />
         <entry key="..\:/BasicAttendanceApp/app/src/main/res/drawable/ic_company.xml" value="0.131" />
         <entry key="..\:/BasicAttendanceApp/app/src/main/res/drawable/ic_in.xml" value="0.131" />
         <entry key="..\:/BasicAttendanceApp/app/src/main/res/drawable/ic_out.xml" value="0.131" />
+        <entry key="..\:/BasicAttendanceApp/app/src/main/res/drawable/ic_timeline.xml" value="0.131" />
         <entry key="..\:/BasicAttendanceApp/app/src/main/res/drawable/ic_view.xml" value="0.131" />
         <entry key="..\:/BasicAttendanceApp/app/src/main/res/layout/activity_add_employee.xml" value="0.20416666666666666" />
         <entry key="..\:/BasicAttendanceApp/app/src/main/res/layout/activity_company.xml" value="0.20416666666666666" />
