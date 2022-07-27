@@ -14,7 +14,7 @@ import com.arete.basicattendanceapp.entity.CompanyMaster
 import com.arete.basicattendanceapp.entity.EMPMaster
 import kotlinx.coroutines.CoroutineScope
 
-@Database(entities = [EMPMaster::class, Attendance::class, CompanyMaster::class], version = 2, exportSchema = true)
+@Database(entities = [EMPMaster::class, Attendance::class, CompanyMaster::class], version = 1, exportSchema = true)
 abstract class AttRoomDatabase : RoomDatabase(){
     abstract fun empMasterDao(): EMPMasterDao
     abstract fun attendanceDao(): AttendanceDao
@@ -22,13 +22,13 @@ abstract class AttRoomDatabase : RoomDatabase(){
 
     companion object {
 
-        val MIGRATION_1_2 = object : Migration(1, 2) {
+        /*val MIGRATION_1_2 = object : Migration(1, 2) {
             override fun migrate(database: SupportSQLiteDatabase) {
                 database.execSQL("CREATE TABLE IF NOT EXISTS CompanyMaster (CMP_ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, CMP_Name TEXT NOT NULL, Status INTEGER NOT NULL DEFAULT 1, Deleted INTEGER NOT NULL DEFAULT 0, Add_By TEXT, Add_Date TEXT DEFAULT CURRENT_DATE, Edit_By TEXT, Edit_Date TEXT, Delete_By TEXT, Delete_Date TEXT)")
             }
         }
 
-        /*val MIGRATION_1_2 = object : Migration(1, 2) {
+        val MIGRATION_1_2 = object : Migration(1, 2) {
             override fun migrate(database: SupportSQLiteDatabase) {
                 database.execSQL("CREATE TABLE IF NOT EXISTS `CompanyMaster` (`CMP_ID` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `CMP_Name` TEXT NOT NULL, `Status` INTEGER NOT NULL DEFAULT 1, `Deleted` INTEGER NOT NULL DEFAULT 0, `Add_By` TEXT, `Add_Date` TEXT DEFAULT CURRENT_DATE, `Edit_By` TEXT, `Edit_Date` TEXT, `Delete_By` TEXT, `Delete_Date` TEXT)")
             }
@@ -55,8 +55,8 @@ abstract class AttRoomDatabase : RoomDatabase(){
                 )
                     // Wipes and rebuilds instead of migrating if no Migration object.
                     // Migration is not part of this codelab.
-                    //.fallbackToDestructiveMigration()
-                    .addMigrations(MIGRATION_1_2)
+                    .fallbackToDestructiveMigration()
+                    //.addMigrations(MIGRATION_1_2)//comment above and uncomment this line for migration
                     .addCallback(AttendanceDatabaseCallback(scope))
                     .build()
                 INSTANCE = instance

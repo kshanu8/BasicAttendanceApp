@@ -58,17 +58,21 @@ class EMPListActivity : AppCompatActivity() {
             }
         }
 
-        val adapterCmp = ArrayAdapter(this, R.layout.simple_spinner_item, arrayList)
+        val adapterCmp = ArrayAdapter(this, R.layout.simple_list_item_1, arrayList)
         binding.spinnerCompany.adapter = adapterCmp
 
         binding.btnSave.setOnClickListener {
-            if (binding.name.text.toString().trim().isEmpty()) {
+            if (binding.spinnerCompany.selectedItemPosition==0){
+                Toast.makeText(context,"Please select company name",Toast.LENGTH_LONG).show()
+            }
+            else if (binding.name.text.toString().trim().isEmpty()) {
                 binding.name.error = "Please enter name"
             }
             else if (binding.designation.text.toString().trim().isEmpty()) {
                 binding.designation.error = "Please enter designation"
             }
             else {
+                val companyName : String = binding.spinnerCompany.selectedItem.toString()
                 val gender: String = if (binding.male.isChecked){
                     "Male"
                 } else{
@@ -77,7 +81,7 @@ class EMPListActivity : AppCompatActivity() {
                 val empMaster = EMPMaster(EMP_Name = binding.name.text.toString().trim(),
                     Designation = binding.designation.text.toString().trim(), Gender = gender, Status = 1,
                     Deleted = 0, Add_By = "Shanu", Add_Date = getCurrentDate(),
-                    Edit_By = "", Edit_Date = "", Delete_By = "", Delete_Date = "")
+                    Edit_By = "", Edit_Date = "", Delete_By = "", Delete_Date = "", CMP_ID = 0, CMP_Name = companyName)
                 //empViewModel.insert(empMaster)
                 empViewModel.insertEmployee(empMaster)
                 Toast.makeText(this,"Inserted Successfully", Toast.LENGTH_LONG).show()

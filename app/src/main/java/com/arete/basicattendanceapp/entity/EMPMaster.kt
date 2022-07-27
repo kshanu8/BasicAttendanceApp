@@ -14,6 +14,8 @@ data class EMPMaster(
     val EMP_Name: String,
     val Designation: String,
     val Gender: String,
+    val CMP_ID: Int,
+    val CMP_Name: String,
     @ColumnInfo(defaultValue = "1")
     val Status: Int,
     @ColumnInfo(defaultValue = "0")

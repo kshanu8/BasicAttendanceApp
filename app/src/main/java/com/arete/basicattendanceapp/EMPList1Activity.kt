@@ -59,7 +59,7 @@ class EMPList1Activity : AppCompatActivity() {
                     "Female"
                 }
                 val empMaster = EMPMaster(/*empID.text.toString().trim().toInt()*/0,name.text.toString().trim(),
-                    designation.text.toString().trim(),gender,1,0,"Shanu",getCurrentDate(),
+                    designation.text.toString().trim(),gender,0,"",1,0,"Shanu",getCurrentDate(),
                     "","","","")
                 //empViewModel.insert(empMaster)
                 empViewModel.insertEmployee(empMaster)

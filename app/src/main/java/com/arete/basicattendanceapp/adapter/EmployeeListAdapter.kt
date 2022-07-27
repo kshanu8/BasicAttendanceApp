@@ -22,12 +22,16 @@ class EmployeeListAdapter : ListAdapter<EMPMaster, EmployeeListAdapter.EMPViewHo
     }
 
     class EMPViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        private val companyView: TextView = itemView.findViewById(R.id.company)
         private val empIdView: TextView = itemView.findViewById(R.id.emp_id)
         private val empNameView: TextView = itemView.findViewById(R.id.emp_name)
         private val empDesigView: TextView = itemView.findViewById(R.id.emp_designation)
         private val empGenderView: TextView = itemView.findViewById(R.id.emp_gender)
 
         fun bind(empMaster: EMPMaster?) {
+            if (empMaster != null) {
+                companyView.text = "Company Name:"+empMaster.CMP_Name
+            }
             empIdView.text = "EMP ID:"+empMaster?.EMP_ID.toString()
             empNameView.text = "EMP Name:"+empMaster!!.EMP_Name
             empDesigView.text = "Designation:"+empMaster.Designation
